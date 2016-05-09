@@ -10,7 +10,7 @@ ax1=plt.axes()
    
 # make plot
 line, = plt.plot(ydata)
-plt.ylim([27000,33000])
+plt.ylim([-100,100])
 
 # start data collection
 while True:  
@@ -20,8 +20,8 @@ while True:
     except ValueError:
         continue
     # port and strip line endings
-    ymin = float(min(ydata))-250
-    ymax = float(max(ydata))+250
+    ymin = float(min(ydata))-50
+    ymax = float(max(ydata))+50
     plt.ylim([ymin,ymax])
     ydata.append(data)
     del ydata[0]

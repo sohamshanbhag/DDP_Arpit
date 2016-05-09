@@ -4,7 +4,7 @@
 // Public Domain
 #include<Wire.h>
 const int MPU_addr=0x48;  // I2C address of the MPU-6050
-int16_t AcX,AcY,AcZ,Tmp,GyX,GyY,GyZ;
+int16_t inst_val, avg_val;
 void setup(){
   Wire.begin();
   Wire.beginTransmission(MPU_addr);
@@ -18,7 +18,7 @@ void loop(){
   Wire.write(0x01);  // starting with register 0x3B (ACCEL_XOUT_H)
   Wire.endTransmission(false);
   Wire.requestFrom(MPU_addr,2,true);  // request a total of 14 registers
-  AcX=Wire.read()<<8|Wire.read();  // 0x3B (ACCEL_XOUT_H) & 0x3C (ACCEL_XOUT_L)     
+  inst_val=Wire.read()<<8|Wire.read();  // 0x3B (ACCEL_XOUT_H) & 0x3C (ACCEL_XOUT_L)     
   //AcY=Wire.read()<<8|Wire.read();  // 0x3D (ACCEL_YOUT_H) & 0x3E (ACCEL_YOUT_L)
   //AcZ=Wire.read()<<8|Wire.read();  // 0x3F (ACCEL_ZOUT_H) & 0x40 (ACCEL_ZOUT_L)
   //Tmp=Wire.read()<<8|Wire.read();  // 0x41 (TEMP_OUT_H) & 0x42 (TEMP_OUT_L)
@@ -33,6 +33,8 @@ void loop(){
   //Serial.print(" | GyY = "); Serial.print(GyY);
   //Serial.print(" | GyZ = "); Serial.println(GyZ);
   
-  Serial.println(AcX);
+  
+  
+  Serial.println(inst_val);
   delay(10);
 }
