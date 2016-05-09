@@ -1,7 +1,7 @@
 import serial
 #import numpy as np
 from matplotlib import pyplot as plt
-ser = serial.Serial('/dev/ttyACM0', 19200)
+ser = serial.Serial('/dev/ttyACM1', 9600)
  
 plt.ion() # set plot to animated
   
@@ -20,9 +20,9 @@ while True:
     except ValueError:
         continue
     # port and strip line endings
-#    ymin = float(min(ydata))-250
-#    ymax = float(max(ydata))+250
-#    plt.ylim([ymin,ymax])
+    ymin = float(min(ydata))-250
+    ymax = float(max(ydata))+250
+    plt.ylim([ymin,ymax])
     ydata.append(data)
     del ydata[0]
 #    line.set_xdata(np.arange(len(ydata)))
