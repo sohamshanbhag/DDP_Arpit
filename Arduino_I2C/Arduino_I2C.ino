@@ -27,13 +27,13 @@ void loop(){
   GyZ=Wire.read()<<8|Wire.read();  // 0x47 (GYRO_ZOUT_H) & 0x48 (GYRO_ZOUT_L)
   Serial.println(GyY);
   
-  if (count < 3){
-    sum += GyY;
-    count++;
-  }
-  else if (count == 3) {
-    avg = sum/3;
-  }
+//  if (count < 3){
+//    sum += GyY;
+//    count++;
+//  }
+//  else if (count == 3) {
+//    avg = sum/3;
+//  }
      
   delay(10);
   
