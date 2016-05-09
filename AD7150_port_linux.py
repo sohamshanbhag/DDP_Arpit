@@ -1,7 +1,7 @@
 import serial
 #import numpy as np
 from matplotlib import pyplot as plt
-ser = serial.Serial('/dev/ttyACM1', 9600)
+ser = serial.Serial('/dev/ttyACM1', 115200)
  
 plt.ion() # set plot to animated
   
